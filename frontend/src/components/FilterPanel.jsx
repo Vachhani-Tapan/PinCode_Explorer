@@ -44,7 +44,8 @@ export default function FilterPanel() {
   };
 
   const handleExport = () => {
-    let url = `http://localhost:5000/api/export?`;
+    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+    let url = `${API_BASE}/export?`;
     if (selectedState) url += `state=${selectedState}`;
     window.open(url, '_blank');
   };
